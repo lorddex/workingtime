@@ -1,0 +1,21 @@
+<resources>
+
+    <string name="app_name">WorkingTime</string>
+    <string name="action_settings">Settings</string>
+    <string name="lastInStr">Last In:</string>
+    <string name="balanceStr">Balance:</string>
+    <string name="badgeInStr">Badge In</string>
+    <string name="badgeOutStr">Badge Out</string>
+    <string name="saveStr">Save on Database</string>
+    <string name="viewStr">View Database</string>
+    <string name="badgeOutAlertOK">OK</string>
+    <string name="badgeOutAlertNO">NO</string>
+    <string name="badgeOutAlertTitle">Are you sure?</string>
+    <string name="badgeOutAlertMsg">Calculate the new balance?</string>
+    <string name="restoredFromDB">Restored from DB!</string>
+    <string name="storeAlertOK">OK</string>
+    <string name="storeAlertNO">NO</string>
+    <string name="storeAlertTitle">Are you sure?</string>
+    <string name="storeAlertMsg">Do you want to store the balance?</string>
+
+</resources>
