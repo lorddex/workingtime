@@ -17,5 +17,10 @@
     <string name="storeAlertNO">NO</string>
     <string name="storeAlertTitle">Are you sure?</string>
     <string name="storeAlertMsg">Do you want to store the balance?</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="ok">OK</string>
+    <string name="reportTitle">Report</string>
 
 </resources>

@@ -51,7 +51,11 @@ public final class R {
         public static final int badgeOutAlertTitle=0x7f05000a;
         public static final int badgeOutStr=0x7f050005;
         public static final int balanceStr=0x7f050003;
+        public static final int day=0x7f050011;
         public static final int lastInStr=0x7f050002;
+        public static final int month=0x7f050012;
+        public static final int ok=0x7f050014;
+        public static final int reportTitle=0x7f050015;
         public static final int restoredFromDB=0x7f05000c;
         public static final int saveStr=0x7f050006;
         public static final int storeAlertMsg=0x7f050010;
@@ -59,6 +63,7 @@ public final class R {
         public static final int storeAlertOK=0x7f05000d;
         public static final int storeAlertTitle=0x7f05000f;
         public static final int viewStr=0x7f050007;
+        public static final int year=0x7f050013;
     }
     public static final class style {
         /** 

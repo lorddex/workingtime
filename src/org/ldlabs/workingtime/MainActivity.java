@@ -28,6 +28,11 @@ public class MainActivity extends FragmentActivity
 	private Button viewButton;
 	private MyBadgeDatabase db;
     
+	private String formatTime(int seconds)
+	{
+		return String.format("%02d:%02d:%02d", seconds/3600, (seconds%3600)/60, (seconds%3600)%60);
+	}
+	
 	@Override
 	protected void onPause()
 	{
@@ -89,12 +94,12 @@ public class MainActivity extends FragmentActivity
 		{
 			printToast(getString(R.string.restoredFromDB));
 			BalanceEntry lb = b.get(b.size()-1);
-			String currentDateandTime = String.format("%02d:%02d:%02d", lb.getBalance()/3600, (lb.getBalance()%3600)/60, (lb.getBalance()%3600)%60);
+			//String currentDateandTime = String.format("%02d:%02d:%02d", lb.getBalance()/3600, (lb.getBalance()%3600)/60, (lb.getBalance()%3600)%60);
 			/*Date d = new Date();
 			d.setTime(s*1000);
 			DateFormat sdf = DateFormat.getTimeInstance();
 			String currentDateandTime = sdf.format(d);*/
-			balance.setText(currentDateandTime);
+			balance.setText(formatTime(lb.getBalance()));
 			lastBalance = (int)lb.getBalance();
 			findViewById(R.id.badgeOutButton).setEnabled(false);
 			findViewById(R.id.badgeInButton).setEnabled(true);
@@ -135,20 +140,21 @@ public class MainActivity extends FragmentActivity
 			//Toast.makeText(MainActivity.this, String.valueOf(year) + "-" + String.valueOf(monthOfYear) + "-" + String.valueOf(dayOfMonth),
 			//		Toast.LENGTH_LONG).show();
 			
-			String report = "Day: ";
+			String report = getString(R.string.day) + ": ";
 			
 			BalanceEntry be = db.getBalsOf(""+year, ""+monthOfYear, ""+dayOfMonth);
-			report += be.getBalance() + "\n";
+			report += formatTime(be.getBalance()) + "\n";
 			
 			be = db.getBalsOf(""+year, ""+monthOfYear, null);
-			report += "Month: " + be.getBalance() + "\n";
+			report += getString(R.string.month) + ": " + formatTime(be.getBalance()) + "\n";
 			
 			be = db.getBalsOf(""+year, null, null);
-			report += "Year: " + be.getBalance() + "\n";
+			report += getString(R.string.year) + ": " + formatTime(be.getBalance()) + "\n";
+			
 			AlertDialog ad = new AlertDialog.Builder(view.getContext()).create();
-			ad.setTitle(getString(R.string.badgeOutAlertTitle));
+			ad.setTitle(getString(R.string.reportTitle));
 			ad.setMessage(report);
-			ad.setButton(DialogInterface.BUTTON_POSITIVE, "OK",  new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which) {}});
+			ad.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.ok),  new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which) {}});
 			ad.show();
 		}
 	};
@@ -210,12 +216,12 @@ public class MainActivity extends FragmentActivity
 					s -= lastIn.getTime().getTime(); 
 				}
 				s /= 1000;
-				String currentDateandTime = String.format("%02d:%02d:%02d", s/3600, (s%3600)/60, (s%3600)%60);
+				//String currentDateandTime = String.format("%02d:%02d:%02d", s/3600, (s%3600)/60, (s%3600)%60);
 				/*Date d = new Date();
 				d.setTime(s*1000);
 				DateFormat sdf = DateFormat.getTimeInstance();
 				String currentDateandTime = sdf.format(d);*/
-				balance.setText(currentDateandTime);
+				balance.setText(formatTime((int)s));
 				lastBalance = (int)s;
 				findViewById(R.id.badgeOutButton).setEnabled(false);
 				findViewById(R.id.badgeInButton).setEnabled(true);
