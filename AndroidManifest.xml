@@ -2,17 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.ldlabs.workingtime"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="0.1" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
-
+    
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <activity
             android:name="org.ldlabs.workingtime.MainActivity"
             android:label="@string/app_name" >
@@ -22,6 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="org.ldlabs.workingtime.PreferencesActivity" >
+	  </activity>
     </application>
 
 </manifest>

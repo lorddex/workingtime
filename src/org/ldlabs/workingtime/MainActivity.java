@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -63,7 +64,8 @@ public class MainActivity extends FragmentActivity
 		
 		setContentView(R.layout.activity_main);
 		db = new MyBadgeDatabase(this);
-
+		//addPreferencesFromResource(R.xml.preferences);
+		
 		viewButton = (Button) findViewById(R.id.viewButton);
 		lastInText = (TextView) findViewById(R.id.textViewLastIn);
 		balance = (TextView) findViewById(R.id.textViewBalance);
@@ -285,5 +287,21 @@ public class MainActivity extends FragmentActivity
 		});
 		ad.show();
 	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+         
+        switch (item.getItemId())
+        {
+        case R.id.settings:
+        	Intent i = new Intent (this, PreferencesActivity.class);
+        	startActivity(i);
+            return true;
+
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }    
 	
 }
